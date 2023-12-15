@@ -14,7 +14,7 @@ import org.pac4j.core.profile.ProfileManager;
 import org.pac4j.core.redirect.RedirectAction;
 import org.pac4j.saml.client.SAML2Client;
 import org.pac4j.saml.profile.SAML2Profile;
-import org.pac4j.saml.profile.api.SAML2ProfileHandler;
+//import org.pac4j.saml.profile.api.SAML2ProfileHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,16 +31,16 @@ public class Logout extends HttpServlet {
 
             String samlResponse = request.getParameter("SAMLResponse");
             if (samlResponse != null) {
-                SAML2ProfileHandler<LogoutRequest> logoutProfileHandler = client.getLogoutProfileHandler();
-                log.info("handler = " + logoutProfileHandler);
-                try {
-                    logoutProfileHandler.receive(client.getContextProvider().buildContext(context));
-                } catch (HttpAction e) {
-                    if (e.getCode() == 200) {
-                        response.sendRedirect("/");
-                    }
-                }
-                throw new RuntimeException("unhandled logout response " + response);
+//                SAML2ProfileHandler<LogoutRequest> logoutProfileHandler = client.getLogoutActionBuilder().;
+//                log.info("handler = " + logoutProfileHandler);
+//                try {
+//                    logoutProfileHandler.receive(client.getContextProvider().buildContext(context));
+//                } catch (HttpAction e) {
+//                    if (e.getCode() == 200) {
+//                        response.sendRedirect("/");
+//                    }
+//                }
+//                throw new RuntimeException("unhandled logout response " + response);
             }
             else {
                 ProfileManager<SAML2Profile> profileManager = new ProfileManager<>(context);

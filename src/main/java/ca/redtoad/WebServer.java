@@ -5,12 +5,13 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 
 public class WebServer {
 
-    private Server server;
+    public static final int port = 8082;
+		private Server server;
 
     public void start() throws Exception {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
-        server = new Server(8080);
+        server = new Server(port);
         server.setHandler(context);
         context.addServlet(Secure.class, "/secure/*");
         context.addServlet(Login.class, "/login/*");
